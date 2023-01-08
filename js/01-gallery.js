@@ -11,7 +11,7 @@ function createGalleryMarkup() {
     }).join("")
 }
 
-galleryRef.insertAdjacentHTML("afterbegin", galleryMarkup)
+galleryRef.innerHTML = galleryMarkup
 
 galleryRef.addEventListener("click", onImageClick)
 
