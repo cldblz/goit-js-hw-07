@@ -12,26 +12,6 @@ function createGalleryMarkup() {
     }).join("")
 }
 
-galleryRef.insertAdjacentHTML("afterbegin", galleryMarkup)
+galleryRef.innerHTML = galleryMarkup
 
-// galleryRef.addEventListener("click", onImageClick)
-
-// function onImageClick(e) {
-//     e.preventDefault()
-
-//     if (e.target.nodeName !== "IMG") {
-//         return
-//     }
-
-//     const instance = basicLightbox.create(`
-//     <img src="${e.target.dataset.source}" width="800" height="600">
-//     `)
-
-//     instance.show()
-
-//     document.addEventListener("keydown", event => {
-//         if (event.key === "Escape") {
-//             instance.close()
-//         }
-//     });
-// }
+const lightbox = new SimpleLightbox('.gallery a', { captions: true, captionSelector: 'img', captionType: 'attr', captionsData: "alt", captionDelay: 250});
