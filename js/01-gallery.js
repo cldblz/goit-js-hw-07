@@ -32,5 +32,5 @@ function onImageClick(e) {
         if (event.key === "Escape") {
             instance.close()
         }
-    });
+    }, {once:true});
 }
