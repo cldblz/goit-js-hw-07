@@ -24,13 +24,19 @@ function onImageClick(e) {
 
     const instance = basicLightbox.create(`
     <img src="${e.target.dataset.source}" width="800" height="600">
-    `)
+    `, {
+        onClose: (instance) => {
+            document.removeEventListener("keydown", onEscape);
+        }
+    })
 
     instance.show()
 
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
+    document.addEventListener("keydown", onEscape);
+
+    function onEscape(e) {
+        if (e.key === "Escape") {
             instance.close()
         }
-    }, {once:true});
+    }
 }
